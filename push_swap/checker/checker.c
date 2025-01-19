@@ -124,9 +124,11 @@ int	main(int argc, char **argv)
 		free(j);
 		return (1);
 	}
-	push_swap(s, &a, &b);
-	ft_free(s);
-	free(j);
-	ft_lstclear(&a);
+	if (push_swap(s, &a, &b) == 1)
+	{
+		free_all(s, j, &a);
+		return (1);
+	}
+	free_all(s, j, &a);
 	return (0);
 }

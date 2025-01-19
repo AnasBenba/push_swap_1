@@ -21,18 +21,14 @@ int	stack_init(t_stack **a, char **s, long test, int i)
 		test = ft_atoi(s[i]);
 		if (test > INT_MAX || test < INT_MIN)
 		{
-			ft_free(s);
-			ft_lstclear(a);
 			write(2, "Error\n", 6);
-			exit(1);
+			return (1);
 		}
 		ptr = ft_lstnew((int)test);
 		if (!ptr)
 		{
-			ft_free(s);
-			ft_lstclear(a);
 			write(2, "Error\n", 6);
-			exit(1);
+			return (1);
 		}
 		ft_lstadd_back(a, ptr);
 		i++;
@@ -122,14 +118,12 @@ int	push_swap(char **s, t_stack **a, t_stack **b)
 		return (1);
 	else if (ft_lstsize(*a) == 2 || ft_lstsize(*a) == 3)
 		few_arg(ft_lstsize(*a), a);
+	else if (ft_lstsize(*a) == 5)
+		sort_5(a, b);
 	else
 	{
-		arr = make_array(a);
-		sort_and_comp(arr, a);
-		push_to_b(a, b, chunck);
-		fix_index(*b);
-		push_to_a(a, b);
-		free(arr);
+		if (sort_more_then_5(a, b, chunck) == 1)
+			return (1);
 	}
 	return (0);
 }

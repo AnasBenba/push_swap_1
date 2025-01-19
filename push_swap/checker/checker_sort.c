@@ -66,6 +66,30 @@ void	use_instruction(char *inst, t_stack **a, t_stack **b)
 		pb(a, b);
 }
 
+int	check_inst(char *inst)
+{
+	int	flag;
+
+	flag = 0;
+	if (ft_strcmp(inst, "sa\n") != 0 && ft_strcmp(inst, "sb\n") != 0
+		&& ft_strcmp(inst, "ra\n") != 0 && ft_strcmp(inst, "rb\n") != 0
+		&& ft_strcmp(inst, "rra\n") != 0 && ft_strcmp(inst, "rrb\n") != 0
+		&& ft_strcmp(inst, "rrr\n") != 0 && ft_strcmp(inst, "rr\n") != 0
+		&& ft_strcmp(inst, "ss\n") != 0 && ft_strcmp(inst, "pa\n") != 0
+		&& ft_strcmp(inst, "pb\n") != 0)
+		flag = 1;
+	if (flag == 1)
+		write(2, "Error\n", 6);
+	return (flag);
+}
+
+void	free_all(char **s, char *j, t_stack **a)
+{
+	ft_free(s);
+	free(j);
+	ft_lstclear(a);
+}
+
 int	push_swap(char **s, t_stack **a, t_stack **b)
 {
 	int		test;
@@ -80,6 +104,8 @@ int	push_swap(char **s, t_stack **a, t_stack **b)
 	line = get_next_line(0);
 	while (line)
 	{
+		if (check_inst(line) == 1)
+			return (1);
 		use_instruction(line, a, b);
 		free(line);
 		line = get_next_line(0);

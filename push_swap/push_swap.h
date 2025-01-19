@@ -58,6 +58,10 @@ void				fix_index(t_stack *stack);
 int					chunck_check(size_t len);
 int					sorted(t_stack **a);
 void				few_arg(size_t len, t_stack **a);
+void				sort_5(t_stack **a, t_stack **b);
+t_stack				*big_number(t_stack *a);
+int					sort_more_then_5(t_stack **a, t_stack **b, int chunck);
+void				free_all(char **s, char *j, t_stack **a);
 
 void				pb(t_stack **a, t_stack **b);
 void				pa(t_stack **a, t_stack **b);

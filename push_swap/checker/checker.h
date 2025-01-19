@@ -58,6 +58,7 @@ char				*get_next_line(int fd);
 char				*ft_strdup(const char *s1);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strchr(const char *s, int c);
+void				free_all(char **s, char *j, t_stack **a);
 
 void				pb(t_stack **a, t_stack **b);
 void				pa(t_stack **a, t_stack **b);

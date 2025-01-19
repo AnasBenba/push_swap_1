@@ -25,7 +25,6 @@ size_t	ft_arrlen(char **s)
 		test = ft_atoi(s[i]);
 		if (test > INT_MAX || test < INT_MIN)
 		{
-			ft_free(s);
 			write(2, "Error\n", 6);
 			return (1);
 		}
