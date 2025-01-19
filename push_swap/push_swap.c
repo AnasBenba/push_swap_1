@@ -6,7 +6,7 @@
 /*   By: abenba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 12:57:57 by abenba            #+#    #+#             */
-/*   Updated: 2025/01/18 13:23:39 by abenba           ###   ########.fr       */
+/*   Updated: 2025/01/18 13:31:32 by abenba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	push_swap(char **s, t_stack **a, t_stack **b)
 	if (stack_init(a, s, test, i) == 1)
 		return (1);
 	if (sorted(a) == 0)
-		return (0);
+		return (1);
 	else if (ft_lstsize(*a) == 2 || ft_lstsize(*a) == 3)
 		few_arg(ft_lstsize(*a), a);
 	else

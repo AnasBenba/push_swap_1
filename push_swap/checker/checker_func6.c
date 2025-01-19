@@ -1,67 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions4.c                                       :+:      :+:    :+:   */
+/*   checker_func6.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 13:08:11 by abenba            #+#    #+#             */
-/*   Updated: 2025/01/18 13:58:04 by abenba           ###   ########.fr       */
+/*   Created: 2025/01/19 16:29:46 by abenba            #+#    #+#             */
+/*   Updated: 2025/01/19 16:29:51 by abenba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int	is_valid(char **argv)
+int	sorted(t_stack **a)
 {
-	int	i;
-	int	j;
+	t_stack	*head;
+	t_stack	*ptr;
 
-	i = 0;
-	while (argv[i])
+	head = *a;
+	while (head)
 	{
-		j = 0;
-		while (argv[i][j])
+		ptr = head->next;
+		while (ptr)
 		{
-			if (argv[i][j] == '-' || argv[i][j] == '+')
-				j++;
-			if (ft_isdigit(argv[i][j]) == 0)
-				return (0);
-			j++;
+			if (head->number > ptr->number)
+				return (1);
+			ptr = ptr->next;
 		}
-		i++;
+		head = head->next;
 	}
-	return (1);
-}
-
-int	is_duplicate(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (argv[i])
-	{
-		j = 1 + i;
-		while (argv[j])
-		{
-			if (ft_strcmp(argv[i], argv[j]) == 0)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
-
-size_t	ft_strlen(const char *c)
-{
-	size_t	len;
-
-	len = 0;
-	while (c && c[len])
-		len++;
-	return (len);
+	return (0);
 }
 
 static char	*ft_join(char *ptr, const char *s1, const char *s2)

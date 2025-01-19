@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions4.c                                       :+:      :+:    :+:   */
+/*   checker_func4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 13:08:11 by abenba            #+#    #+#             */
-/*   Updated: 2025/01/18 13:58:04 by abenba           ###   ########.fr       */
+/*   Created: 2025/01/19 16:29:27 by abenba            #+#    #+#             */
+/*   Updated: 2025/01/19 16:29:29 by abenba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int	is_valid(char **argv)
 {
@@ -76,11 +76,6 @@ static char	*ft_join(char *ptr, const char *s1, const char *s2)
 		ptr[i] = s1[i];
 		i++;
 	}
-	if (s1)
-	{
-		ptr[i] = ' ';
-		i++;
-	}
 	while (s2 && s2[y])
 	{
 		ptr[i + y] = s2[y];
@@ -90,7 +85,7 @@ static char	*ft_join(char *ptr, const char *s1, const char *s2)
 	return (ptr);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin_get(char const *s1, char const *s2)
 {
 	char	*ptr;
 	size_t	ptr_len;
