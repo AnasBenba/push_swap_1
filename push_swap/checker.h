@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abenba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 12:52:54 by abenba            #+#    #+#             */
-/*   Updated: 2025/01/18 12:52:55 by abenba           ###   ########.fr       */
+/*   Created: 2025/01/19 16:30:36 by abenba            #+#    #+#             */
+/*   Updated: 2025/01/19 16:30:39 by abenba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_H
+# define CHECKER_H
 
 # include <limits.h>
+# include <fcntl.h>
 # include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdint.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 typedef struct s_stack
 {
@@ -40,27 +46,18 @@ int					ft_isdigit(int c);
 int					is_valid(char **argv);
 int					is_duplicate(char **argv);
 size_t				ft_strlen(const char *c);
+char				*ft_strjoin_get(char const *s1, char const *s2);
 char				*ft_strjoin(char const *s1, char const *s2);
 int					ft_strcmp(const char *s1, const char *s2);
-void				sort_3(t_stack **a);
-t_stack				*big_index(t_stack *a);
 t_stack				*ft_lstlast(t_stack *lst);
 void				ft_lstadd_front(t_stack **lst, t_stack *new);
 int					push_swap(char **s, t_stack **a, t_stack **b);
 size_t				ft_arrlen(char **s);
-void				up_or_down(t_stack *stack);
-void				bubble_sort(int arr[], int n);
-int					*make_array(t_stack **a);
-void				sort_and_comp(int *arr, t_stack **a);
-void				push_to_b(t_stack **a, t_stack **b, int chunck);
-void				push_to_a(t_stack **a, t_stack **b);
-void				fix_index(t_stack *stack);
-int					chunck_check(size_t len);
 int					sorted(t_stack **a);
-void				few_arg(size_t len, t_stack **a);
-void				sort_5(t_stack **a, t_stack **b);
-t_stack				*big_number(t_stack *a);
-int					sort_more_then_5(t_stack **a, t_stack **b, int chunck);
+char				*get_next_line(int fd);
+char				*ft_strdup(const char *s1);
+char				*ft_substr(char const *s, unsigned int start, size_t len);
+char				*ft_strchr(const char *s, int c);
 void				free_all(char **s, char *j, t_stack **a);
 int					for_norm(char **s, t_stack **a, t_stack **b, char *j);
 
@@ -70,11 +67,11 @@ void				rrr(t_stack **a, t_stack **b);
 void				rr(t_stack **a, t_stack **b);
 void				ss(t_stack *a, t_stack *b);
 void				rrb(t_stack **b);
-void				rb(t_stack **b, int flag);
-void				sb(t_stack *b, int flag);
+void				rb(t_stack **b);
+void				sb(t_stack *b);
 void				rra(t_stack **a);
 t_stack				*find_last(t_stack *stack);
-void				ra(t_stack **a, int flag);
-void				sa(t_stack *a, int flag);
+void				ra(t_stack **a);
+void				sa(t_stack *a);
 
 #endif

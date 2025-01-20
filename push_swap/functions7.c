@@ -36,3 +36,13 @@ void	free_all(char **s, char *j, t_stack **a)
 	free(j);
 	ft_lstclear(a);
 }
+
+int	for_norm(char **s, t_stack **a, t_stack **b, char *j)
+{
+	if (push_swap(s, a, b) == 1)
+	{
+		free_all(s, j, a);
+		return (1);
+	}
+	return (0);
+}
